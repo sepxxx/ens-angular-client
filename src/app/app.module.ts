@@ -20,12 +20,15 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { MainPageComponent } from './components/main.page/main.page.component';
+import { MainNewsletterCardComponent } from './components/main.newsletter.card/main.newsletter.card.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     AppComponent,
+
 
   ],
   imports: [
@@ -37,7 +40,10 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     HttpClientModule,
     SidenavComponent,
-    MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule, MatListModule, CommonModule, RouterModule
+    MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule, MatListModule, CommonModule, RouterModule,
+    MainPageComponent,
+    MainNewsletterCardComponent,
+
 
   ],
   providers: [    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },],

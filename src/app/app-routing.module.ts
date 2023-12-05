@@ -4,11 +4,17 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { AuthGuard } from './services/auth-guard.service';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { MainPageComponent } from './components/main.page/main.page.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'newsletter',
     component: HomeComponent,
+    // canActivate: [AuthGuard]
+  },
+  {
+    path: '',
+    component: MainPageComponent,
     // canActivate: [AuthGuard]
   },
   {
@@ -16,9 +22,10 @@ const routes: Routes = [
       component: LoginComponent
   },
   {
-    path: 'test',
-    component: HomeComponent
+    path: 'dashboard',
+    component: MainPageComponent
   },
+
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 

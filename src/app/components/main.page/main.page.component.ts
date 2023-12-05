@@ -2,6 +2,7 @@
 import {Component} from '@angular/core';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { MainNewsletterCardComponent } from '../main.newsletter.card/main.newsletter.card.component';
+import { MainContactsCardComponent } from '../main.contacts.card/main.contacts.card.component';
 
 // export interface Tile {
 //   color: string;
@@ -18,7 +19,7 @@ import { MainNewsletterCardComponent } from '../main.newsletter.card/main.newsle
   templateUrl: './main.page.component.html',
   styleUrls: ['./main.page.component.css'],
   standalone: true,
-  imports: [MatGridListModule, MainNewsletterCardComponent],
+  imports: [MatGridListModule, MainNewsletterCardComponent, MainContactsCardComponent],
 })
 export class MainPageComponent {
 

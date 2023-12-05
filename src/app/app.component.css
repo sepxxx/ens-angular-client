@@ -6,8 +6,13 @@
     bottom: 0;
     left: 0;
     right: 0;
+    
   }
-  
+
+  .example-toolbar {
+    background-color: rgba(128, 0, 128, 0.6); /* Фиолетовый цвет с прозрачностью 0.8 */
+    color: white; /* Цвет текста */
+  }
   .example-is-mobile .example-toolbar {
     position: fixed;
     /* Make sure the toolbar will stay on top of the content as it scrolls past. */
@@ -22,6 +27,7 @@
     /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
        causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
     flex: 1;
+
   }
   
   .example-is-mobile .example-sidenav-container {

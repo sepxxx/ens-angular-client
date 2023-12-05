@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { User } from '../shared/helpers';
+import { User } from '../dtos/user';
 import { environment } from '../environments/environment';
 
 @Injectable({
@@ -31,7 +31,7 @@ export class AuthenticationService {
     .post<any>(`${environment.apiUrl}/auth/login`, AuthRequestDto)
     .pipe(
       map((user) => {
-        if (!user['accessToken']) {
+        if (!user['jwtToken']) {
           this.userSubject.next(null);
           return throwError(() => 'Auth error');
         } else {

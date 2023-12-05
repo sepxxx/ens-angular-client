@@ -1,14 +1,43 @@
 <!-- nav -->
-<nav class="navbar navbar-expand navbar-dark bg-dark px-3" *ngIf="user">
+<!-- <nav class="navbar navbar-expand navbar-dark bg-dark px-3" *ngIf="user">
   <div class="navbar-nav">
       <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
       <a class="nav-item nav-link" routerLink="/admin" routerLinkActive="active" *ngIf="isAdmin">Admin</a>
       <a class="nav-item nav-link" routerLink="/users/table" routerLinkActive="active" *ngIf="isAdmin">Users table</a>
       <button class="btn btn-link nav-item nav-link" (click)="logout()">Logout</button>
   </div>
-</nav>
+</nav> -->
 
 <!-- main app container -->
-<div class="container">
-  <router-outlet></router-outlet>
+<!-- <div class="container"> -->
+  <!-- <router-outlet></router-outlet> -->
+<!-- </div> -->
+
+
+
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
+  <mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+    <h1 class="example-app-name">Responsive App</h1>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container"
+                        [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <mat-nav-list>
+        <!-- @for (nav of fillerNav; track nav) {
+          <a mat-list-item routerLink=".">{{nav}}</a>
+        } -->
+        <a mat-list-item routerLink="/login" routerLinkActive="active">LOGIN</a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <!-- @for (content of fillerContent; track content) {
+  <p>{{content}}</p>
+} -->
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 </div>

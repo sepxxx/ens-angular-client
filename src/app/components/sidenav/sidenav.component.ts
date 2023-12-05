@@ -1,29 +1,25 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
-import { Role, User } from './dtos/user';
-import { AuthenticationService } from './services/authentication.service';
-import { MediaMatcher } from '@angular/cdk/layout';
 
 
+import {MediaMatcher} from '@angular/cdk/layout';
+import {ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
+import {MatListModule} from '@angular/material/list';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import { CommonModule } from '@angular/common';
 
+import { RouterModule, Routes } from '@angular/router';
+
+/** @title Responsive sidenav */
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  selector: 'sidenav',
+  templateUrl: 'sidenav.component.html',
+  styleUrls: ['sidenav.component.css'],
+  standalone: true,
+  imports: [MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule, MatListModule, CommonModule, RouterModule],
 })
-export class AppComponent {
-  title = 'ens-client';
-  user?: User | null;
-
-
-  get isAdmin() {
-      return this.user?.role === Role.Admin;
-  }
-
-  logout() {
-      this.authenticationService.logout();
-  }
-
-
+export class SidenavComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
 
   // fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
@@ -40,14 +36,14 @@ export class AppComponent {
 
   private _mobileQueryListener: () => void;
 
-  constructor(private authenticationService: AuthenticationService, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+  constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addListener(this._mobileQueryListener);
-    this.authenticationService.user.subscribe(x => this.user = x);
   }
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
   }
+
 }

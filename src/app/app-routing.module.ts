@@ -5,11 +5,12 @@ import { HomeComponent } from './components/home/home.component';
 import { AuthGuard } from './services/auth-guard.service';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { MainPageComponent } from './components/main.page/main.page.component';
+import { NewsletterCreationCardComponent } from './components/newsletter.creation.card/newsletter.creation.card.component';
 
 const routes: Routes = [
   {
     path: 'newsletter',
-    component: HomeComponent,
+    component: NewsletterCreationCardComponent,
     // canActivate: [AuthGuard]
   },
   {

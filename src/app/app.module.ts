@@ -23,6 +23,8 @@ import { RouterModule } from '@angular/router';
 import { MainPageComponent } from './components/main.page/main.page.component';
 import { MainNewsletterCardComponent } from './components/main.newsletter.card/main.newsletter.card.component';
 import { MainContactsCardComponent } from './components/main.contacts.card/main.contacts.card.component';
+import { NewsletterCreationCardComponent } from './components/newsletter.creation.card/newsletter.creation.card.component';
+import { SelectRecipientsListComponent } from './components/select.recipients.list/select.recipients.list.component';
 
 
 @NgModule({
@@ -44,7 +46,11 @@ import { MainContactsCardComponent } from './components/main.contacts.card/main.
     MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule, MatListModule, CommonModule, RouterModule,
     MainPageComponent,
     MainNewsletterCardComponent,
-    MainContactsCardComponent
+    MainContactsCardComponent,
+    NewsletterCreationCardComponent,
+    SelectRecipientsListComponent,
+
+
 
   ],
   providers: [    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },],

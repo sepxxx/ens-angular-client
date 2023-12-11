@@ -1,0 +1,14 @@
+<!-- <h4>Basic mat-select</h4> -->
+<mat-form-field>
+  <mat-label>Список получателей</mat-label>
+  <mat-select [(ngModel)]="selectedName" (ngModelChange)="onSelectChange()">
+    <!-- @for (food of foods; track food) {
+      <mat-option [value]="food.value">{{food.viewValue}}</mat-option>
+    } -->
+    <ng-container *ngFor="let name of names">
+        <!-- <mat-option [value]="food.value">{{food.viewValue}}</mat-option> -->
+        <mat-option [value]="name">{{name}}</mat-option>
+
+    </ng-container>
+  </mat-select>
+</mat-form-field>

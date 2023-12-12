@@ -7,6 +7,6 @@ export interface TaskResponseDto {
 }
 
 export interface TaskRequestDto {
-    recipientListName: String,
+    recipientsListName: String,
     text: String
 }

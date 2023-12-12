@@ -20,6 +20,6 @@ export class EnsService {
 
   saveTaskAndCreateNotifications(taskRequestDto:TaskRequestDto) {
       // const taskRequestDto = {"recipientsListName": recipientsListName, "text": text};
-      this.http.post<TaskResponseDto>(`${environment.apiUrl}/task/new`, taskRequestDto);
+    return  this.http.post<TaskResponseDto>(`${environment.apiUrl}/task/new`, taskRequestDto);
   }
 }

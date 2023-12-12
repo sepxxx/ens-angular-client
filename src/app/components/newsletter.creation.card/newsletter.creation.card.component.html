@@ -17,9 +17,9 @@
 
             <mat-form-field class="example-full-width">
                 <mat-label>Текст рассылки</mat-label>
-                <textarea matInput placeholder="Внимание..."></textarea>
+                <textarea matInput [(ngModel)]="textareaValue" placeholder="Внимание..."></textarea>
             </mat-form-field>
-            <button mat-raised-button>Отправить</button>
+            <button mat-raised-button (click)="onSendButtonClick()">Отправить</button>
         </div>
     </mat-card-actions>
     <mat-card-footer>

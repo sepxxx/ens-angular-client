@@ -8,7 +8,8 @@ import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { EnsService } from 'src/app/services/ens.service';
-
+import { TaskRequestDto } from 'src/app/dtos/taskDto';
+import { MatSnackBar } from '@angular/material/snack-bar';
 /**
  * @title Card with footer
  */
@@ -20,13 +21,11 @@ import { EnsService } from 'src/app/services/ens.service';
   imports: [MatCardModule, MatDividerModule, MatButtonModule, MatProgressBarModule, SelectRecipientsListComponent, FormsModule, MatFormFieldModule, MatInputModule],
 })
 export class NewsletterCreationCardComponent {
-  longText = `The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog
-  from Japan. A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was
-  originally bred for hunting.`;
 
-  constructor(private ensService: EnsService) {}
+  constructor(private ensService: EnsService, private snackBar: MatSnackBar) {}
 
   selectedName:String = '';
+  textareaValue: string = '';
 
   //Хорошо ли тут менять каждый раз?
   //Почему бы сразу не забирать последнее значение после нажатя кнопки?
@@ -34,19 +33,28 @@ export class NewsletterCreationCardComponent {
     // Обработка выбранного значения
     console.log(selectedName);
     this.selectedName = selectedName;
+
   }
   
-  // onSendButtunClick() {
-  //   const taskRequestDto = {"recipientsListName": recipientsListName, "text": this.longText};
-  //   this.ensService.getAllRecipientListNames(taskRequestDto).subscribe({
-  //     next: (data) => {
-  //       // Обработка успешного завершения
-  //       console.log(data);
-  //     },
-  //     error: (err) => {
-  //       // Обработка ошибок
-  //     }
-  //   });
-  // }
+  onSendButtonClick() {
+    const taskRequestDto:TaskRequestDto = {recipientsListName: this.selectedName, text: this.textareaValue};
+    console.log(taskRequestDto);
+    this.ensService.saveTaskAndCreateNotifications(taskRequestDto).subscribe({
+      next: (data) => {
+        // Обработка успешного завершения
+        console.log(data);
+        
+        this.snackBar.open(`Рассылка с id ${data.id} по списку ${data.recipientListName} успешно начата`, 'Закрыть', {
+          duration: 3000, // Длительность отображения в миллисекундах
+          verticalPosition: 'top', // Позиция по вертикали
+          horizontalPosition: 'center' // Позиция по горизонтали
+        });
+      },
+      error: (err) => {
+        // Обработка ошибок
+      }
+    });
+  }
+
 }
 

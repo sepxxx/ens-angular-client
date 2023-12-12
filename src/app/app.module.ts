@@ -26,6 +26,7 @@ import { MainContactsCardComponent } from './components/main.contacts.card/main.
 import { NewsletterCreationCardComponent } from './components/newsletter.creation.card/newsletter.creation.card.component';
 import { SelectRecipientsListComponent } from './components/select.recipients.list/select.recipients.list.component';
 import { CsvLoaderCardComponent } from './components/csv.loader.card/csv.loader.card.component';
+import { NewsletterTableComponent } from './components/newsletter.table/newsletter.table.component';
 
 
 @NgModule({
@@ -50,9 +51,8 @@ import { CsvLoaderCardComponent } from './components/csv.loader.card/csv.loader.
     MainContactsCardComponent,
     NewsletterCreationCardComponent,
     SelectRecipientsListComponent,
-    CsvLoaderCardComponent
-
-
+    CsvLoaderCardComponent,
+    NewsletterTableComponent,
 
   ],
   providers: [    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },],

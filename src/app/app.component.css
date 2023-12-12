@@ -37,3 +37,10 @@
   }
   
 
+/* styles.css или ваш стиль файл */
+.mat-list-item-button {
+  text-transform: none;
+  background: none;
+  border: none;
+  outline: none;
+}

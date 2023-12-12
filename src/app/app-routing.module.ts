@@ -7,8 +7,14 @@ import { AuthGuard } from './services/auth-guard.service';
 import { MainPageComponent } from './components/main.page/main.page.component';
 import { NewsletterCreationCardComponent } from './components/newsletter.creation.card/newsletter.creation.card.component';
 import { CsvLoaderCardComponent } from './components/csv.loader.card/csv.loader.card.component';
+import { NewsletterTableComponent } from './components/newsletter.table/newsletter.table.component';
 
 const routes: Routes = [
+  {
+    path: 'task/all',
+    component: NewsletterTableComponent,
+    // canActivate: [AuthGuard]
+  },
   {
     path: 'loadcsv',
     component: CsvLoaderCardComponent,

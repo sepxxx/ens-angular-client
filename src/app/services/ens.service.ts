@@ -30,4 +30,8 @@ export class EnsService {
     formData.append('recipientsListName', listName);
     return this.http.post<RecipientsListResponseDto>(`${environment.apiUrl}/upload`, formData);
   }
+
+  getTaskList():Observable<TaskResponseDto[]> {
+    return this.http.get<TaskResponseDto[]>(`${environment.apiUrl}/task/all`);
+  }
 }

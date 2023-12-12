@@ -1,7 +1,8 @@
 export interface TaskResponseDto {
     id: number,
-    recipientListName: String,
-    text: String,
+    recipientListName: string,
+    text: string,
+    createdAt: string,
     done: number,
     total: number
 }

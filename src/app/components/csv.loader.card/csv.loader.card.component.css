@@ -1,0 +1,9 @@
+.example-card {
+    max-width: 400px;
+    margin: 15%;
+  }
+  
+  .action-container {
+    display: flex;
+    flex-direction: column;
+  }

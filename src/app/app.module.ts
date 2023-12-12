@@ -25,6 +25,7 @@ import { MainNewsletterCardComponent } from './components/main.newsletter.card/m
 import { MainContactsCardComponent } from './components/main.contacts.card/main.contacts.card.component';
 import { NewsletterCreationCardComponent } from './components/newsletter.creation.card/newsletter.creation.card.component';
 import { SelectRecipientsListComponent } from './components/select.recipients.list/select.recipients.list.component';
+import { CsvLoaderCardComponent } from './components/csv.loader.card/csv.loader.card.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { SelectRecipientsListComponent } from './components/select.recipients.li
     MainContactsCardComponent,
     NewsletterCreationCardComponent,
     SelectRecipientsListComponent,
+    CsvLoaderCardComponent
 
 
 

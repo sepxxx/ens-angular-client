@@ -9,7 +9,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { JwtInterceptor } from './interceptors/jwt-interceptor';
 import { LoginComponent } from './components/login/login.component';
 import { FormsModule } from '@angular/forms';
-import { SidenavComponent } from './components/sidenav/sidenav.component';
+// import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 import {MediaMatcher} from '@angular/cdk/layout';
 import {ChangeDetectorRef, OnDestroy} from '@angular/core';
@@ -42,7 +42,7 @@ import { SelectRecipientsListComponent } from './components/select.recipients.li
     LoginComponent,
     FormsModule,
     HttpClientModule,
-    SidenavComponent,
+    // SidenavComponent,
     MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule, MatListModule, CommonModule, RouterModule,
     MainPageComponent,
     MainNewsletterCardComponent,
